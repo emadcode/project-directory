@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Tasks</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Daily Tasks</h1>
+    </header>
+
+    <main>
+        <section id="add-task">
+            <h2>Add New Task</h2>
+            <input type="text" id="taskName" placeholder="Enter task name">
+            <button id="addTaskButton">Add Task</button>
+        </section>
+        
+        <section id="taskList">
+            <h2>Task List</h2>
+            <ul id="tasks">
+                <!-- Added tasks will appear here -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Daily Tasks Application</p>
+    </footer>
+    <script>
+        window.onload = function() {
+            document.getElementById('addTaskButton').addEventListener('click', function() {
+                const taskName = document.getElementById('taskName').value;
+                console.log(`Task Name: ${taskName}`); // عرض اسم التسك في الكونسول
+        
+                if (taskName !== '') {
+                    const taskList = document.getElementById('tasks');
+                    const li = document.createElement('li');
+                    li.textContent = taskName;
+                    taskList.appendChild(li);
+                    
+                    // تنظيف الحقل
+                    document.getElementById('taskName').value = ''; 
+                } else {
+                    alert('من فضلك أدخل اسم التسك');
+                }
+            });
+        };
+        </script>
+        
+    <script src="/app.js"></script>
+</body>
+</html>
